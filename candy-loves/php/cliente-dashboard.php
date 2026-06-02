@@ -329,6 +329,136 @@ iniciarSessao();
             font-weight: 500;
         }
 
+        /* SEÇÃO SAZONAIS BETA */
+        .sazonais-section {
+            background: linear-gradient(135deg, #fffaf7 0%, #fff5f0 100%);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(90, 70, 70, 0.08);
+            margin-bottom: 60px;
+            animation: fadeInUp 0.6s ease 0.6s both;
+            border: 2px solid #b83b5e;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sazonais-section::before {
+            content: '✨ BETA ✨';
+            position: absolute;
+            top: -10px;
+            right: 30px;
+            background: linear-gradient(135deg, #b83b5e 0%, #a02d50 100%);
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 0 0 15px 15px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            transform: rotate(2deg);
+            box-shadow: 0 4px 12px rgba(184, 59, 94, 0.3);
+        }
+
+        .sazonais-section h3 {
+            color: #b83b5e;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sazonais-subtitle {
+            color: #8b7575;
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+
+        .sazonais-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .sazonais-card {
+            background: linear-gradient(135deg, #f9d5e5 0%, #f3e1dd 100%);
+            border-radius: 15px;
+            padding: 30px 25px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+            box-shadow: 0 6px 20px rgba(90, 70, 70, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sazonais-card::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(184, 59, 94, 0.1) 0%, transparent 70%);
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 0;
+        }
+
+        .sazonais-card:hover::before {
+            opacity: 1;
+        }
+
+        .sazonais-card:hover {
+            transform: translateY(-12px) scale(1.05);
+            box-shadow: 0 12px 36px rgba(184, 59, 94, 0.2);
+            border-color: #b83b5e;
+        }
+
+        .sazonais-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .sazonais-icon {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+        }
+
+        .sazonais-card h4 {
+            color: #b83b5e;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .sazonais-card p {
+            color: #8b7575;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .sazonais-btn {
+            background: linear-gradient(135deg, #b83b5e 0%, #a02d50 100%);
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .sazonais-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(184, 59, 94, 0.3);
+        }
+
         /* Featured Section */
         .featured-section {
             background: linear-gradient(135deg, #fffaf7 0%, #fff5f0 100%);
@@ -495,6 +625,20 @@ iniciarSessao();
                 margin-bottom: 40px;
             }
 
+            .sazonais-section {
+                padding: 30px 20px;
+                margin-bottom: 40px;
+            }
+
+            .sazonais-section h3 {
+                font-size: 1.4rem;
+            }
+
+            .sazonais-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
             .featured-section {
                 padding: 30px 20px;
                 margin-bottom: 40px;
@@ -594,6 +738,18 @@ iniciarSessao();
 
             .stat-number {
                 font-size: 2rem;
+            }
+
+            .sazonais-section {
+                padding: 25px 15px;
+            }
+
+            .sazonais-section h3 {
+                font-size: 1.2rem;
+            }
+
+            .sazonais-grid {
+                grid-template-columns: 1fr;
             }
 
             .featured-section {
@@ -700,7 +856,39 @@ iniciarSessao();
             </div>
         </div>
 
-      
+        <!-- SEÇÃO SAZONAIS BETA -->
+        <div class="sazonais-section">
+            <h3><i class="fas fa-sparkles"></i> Receitas Sazonais - BETA</h3>
+            <p class="sazonais-subtitle">Explore nossas coleções especiais decoradas para diferentes épocas do ano!</p>
+            
+            <div class="sazonais-grid">
+                <!-- NATAL -->
+                <div class="sazonais-card">
+                    <div class="sazonais-icon">🎄</div>
+                    <h4>Receitas de Natal</h4>
+                    <p>Receitas festivas decoradas com cores natalinas. Perfeito para sua ceia!</p>
+                    <a href="receitas-sazonais-natal.php" class="sazonais-btn">Ver Beta →</a>
+                </div>
+
+                <!-- PÁSCOA -->
+                <div class="sazonais-card">
+                    <div class="sazonais-icon">🐰</div>
+                    <h4>Receitas de Páscoa</h4>
+                    <p>Receitas especiais com decoração pascalina. Tema pastel e ovos!</p>
+                    <a href="receitas-sazonais-pascoa.php" class="sazonais-btn">Ver Beta →</a>
+                </div>
+
+                <!-- FESTA JUNINA -->
+                <div class="sazonais-card">
+                    <div class="sazonais-icon">🎪</div>
+                    <h4>Festa Junina</h4>
+                    <p>Receitas típicas com decoração de festa junina. São João é aqui!</p>
+                    <a href="receitas-sazonais-junina.php" class="sazonais-btn">Ver Beta →</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
     <!-- Footer -->
     <footer>
